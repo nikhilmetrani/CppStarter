@@ -10,12 +10,17 @@ configuration:
 
 environment:
   matrix:
-    - GENERATOR: Visual Studio 15 2017
-    - GENERATOR: Visual Studio 15 2017 Win64
-    - GENERATOR: Visual Studio 16 2019
-    - GENERATOR: Visual Studio 16 2019 Win64
+    - arch: x64
+    - arch: x86
 
-init: []
+init:
+  - set arch=
+  - if "%arch%"=="x64" ( set arch= Win64)
+  - echo %arch%
+  - echo %APPVEYOR_BUILD_WORKER_IMAGE%
+  - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2019" ( set GENERATOR="Visual Studio 16 2019%arch%" )
+  - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set GENERATOR="Visual Studio 15 2017%arch%" )
+  - echo %generator%
 
 before_build:
 - md build

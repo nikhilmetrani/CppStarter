@@ -1,5 +1,10 @@
 # CppStarter
 
+[![Build Status](https://travis-ci.com/nikhilmetrani/CppStarter.svg?branch=master)](https://travis-ci.com/nikhilmetrani/CppStarter)
+[![Build status](https://ci.appveyor.com/api/projects/status/a5ys0dxj5umktrp3/branch/master?svg=true)](https://ci.appveyor.com/project/nikhilmetrani/cppstarter/branch/master)
+
+---
+
 Simple cross platform C++ starter project with shared library, executable, Google Test and CI.
 
 

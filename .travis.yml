@@ -53,4 +53,4 @@ script:
   - cd build
   - cmake ..
   - make
-  - bin/CppGoogleTestStarter.exe
+  - bin/CppGoogleTestStarter
