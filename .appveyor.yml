@@ -1,33 +1,32 @@
 version: '{branch}-{build}'
 
-os:
-- Visual Studio 2017
-- Visual Studio 2019
-
 configuration:
 - Release
 - Debug
 
 environment:
   matrix:
-    - ARCH: x86
-    - ARCH: x64
+    - GENERATOR: Visual Studio 15 2017
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
 
-init:
-  - set ARCH=
-  - if "%ARCH%"=="x64" ( set ARCH= Win64)
-  - if "%ARCH%"=="x86" ( set ARCH=)
-  - echo %ARCH%
-  - echo %APPVEYOR_BUILD_WORKER_IMAGE%
-  - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2019" ( set GENERATOR=Visual Studio 16 2019%ARCH%)
-  - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set GENERATOR=Visual Studio 15 2017%ARCH%)
-  - echo %GENERATOR%
+    - GENERATOR: Visual Studio 15 2017 Win64
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+
+    - ARCH: x64
+      GENERATOR: Visual Studio 16 2019
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+
+    - ARCH: Win32
+      GENERATOR: Visual Studio 16 2019
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+
+init: []
 
 before_build:
 - md build
 - cd build
-- echo Calling cmake --config "%CONFIGURATION%" -G "%GENERATOR%" ..
-- cmake --config "%CONFIGURATION%" -G "%GENERATOR%" ..
+- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" (cmake --config "%CONFIGURATION%" -G "%GENERATOR%" ..)
+- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2019" (cmake --config "%CONFIGURATION%" -G "%GENERATOR%" -A %ARCH% ..)
 
 build_script:
 - cmake --build . --config "%CONFIGURATION%"

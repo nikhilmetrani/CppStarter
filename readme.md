@@ -24,8 +24,8 @@ Simple cross platform C++ starter project with shared library, executable, Googl
    * Linux
       * gcc 8
       * gcc 9
+      * clang 7
       * clang 8
-      * clang 9
    * OSX
       * clang (xcode 9.4 and 10.3)
    * Windows
