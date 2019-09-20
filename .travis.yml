@@ -1,6 +1,6 @@
 language: generic
 os: linux
-dist: trusty
+dist: xenial
 matrix:
   include:
     - compiler: gcc
@@ -22,7 +22,7 @@ matrix:
     - compiler: clang
       addons:
         apt:
-          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-8']
+          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-xenial-8']
           packages: ['clang-8']
       env:
         - CXX=clang++-8
@@ -30,7 +30,7 @@ matrix:
     - compiler: clang
       addons:
         apt:
-          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-9']
+          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-xenial-9']
           packages: ['clang-9']
       env:
         - CXX=clang++-9
