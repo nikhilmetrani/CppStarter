@@ -1,6 +1,10 @@
 language: generic
 os: linux
 dist: xenial
+env:
+  - CONFIG=Debug
+  - CONFIG=Release
+
 matrix:
   include:
     - compiler: gcc
@@ -10,8 +14,6 @@ matrix:
           packages: ['g++-8', 'qt5-default']
       env:
         - CXX=g++-8
-        - CONFIG=Debug
-        - CONFIG=Release
 
     - compiler: clang
       addons:
@@ -20,16 +22,12 @@ matrix:
           packages: ['clang-8', 'g++-8', 'qt5-default']
       env:
         - CXX=clang++-8
-        - CONFIG=Debug
-        - CONFIG=Release
 
     - os: osx
       osx_image: xcode10.3
       compiler: clang
       env:
         - CXX=clang++
-        - CONFIG=Debug
-        - CONFIG=Release
 
 before_install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then
@@ -37,10 +35,12 @@ before_install:
       brew outdated cmake || brew upgrade cmake;
       brew install qt5;
       export CMAKE_PREFIX_PATH=$(brew --prefix qt5);
+      echo CMAKE_PREFIX_PATH - $CMAKE_PREFIX_PATH
     fi
 
 before_script:
   - $CXX --version
+  - echo CONFIG - $CONFIG
   - mkdir build
   - cd build
   - cmake .. -DCMAKE_BUILD_TYPE=$CONFIG
