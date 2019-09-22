@@ -7,50 +7,44 @@ matrix:
       addons:
         apt:
           sources: ['ubuntu-toolchain-r-test']
-          packages: ['g++-8']
+          packages: ['g++-8', 'qt5-default']
       env:
         - CXX=g++-8
-    
-    - compiler: gcc
-      addons:
-        apt:
-          sources: ['ubuntu-toolchain-r-test']
-          packages: ['g++-9']
-      env:
-        - CXX=g++-9
+        - CONFIG=Debug
+        - CONFIG=Release
 
-    - compiler: clang
-      addons:
-        apt:
-          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-xenial-7']
-          packages: ['clang-7', 'g++-7']
-      env:
-        - CXX=clang++-7
-  
     - compiler: clang
       addons:
         apt:
           sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-xenial-8']
-          packages: ['clang-8', 'g++-8']
+          packages: ['clang-8', 'g++-8', 'qt5-default']
       env:
         - CXX=clang++-8
-
-    - os: osx
-      osx_image: xcode9.4
-      compiler: clang
-      env:
-        - CXX=clang++
+        - CONFIG=Debug
+        - CONFIG=Release
 
     - os: osx
       osx_image: xcode10.3
       compiler: clang
       env:
         - CXX=clang++
+        - CONFIG=Debug
+        - CONFIG=Release
 
-script:
+before_install:
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then
+      brew update;
+      brew outdated cmake || brew upgrade cmake;
+      brew install qt5;
+      export CMAKE_PREFIX_PATH=$(brew --prefix qt5);
+    fi
+
+before_script:
   - $CXX --version
   - mkdir build
   - cd build
-  - cmake ..
-  - make
+  - cmake .. -DCMAKE_BUILD_TYPE=$CONFIG
+
+script:
+  - cmake --build . --config $CONFIG
   - bin/CppGoogleTestStarter
