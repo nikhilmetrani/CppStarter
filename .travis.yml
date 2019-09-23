@@ -14,13 +14,13 @@ matrix:
         - CONFIG=Debug
 
     - compiler: gcc
-          addons:
-            apt:
-              sources: ['ubuntu-toolchain-r-test']
-              packages: ['g++-8', 'qt5-default']
-          env:
-            - CXX=g++-8
-            - CONFIG=Release
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test']
+          packages: ['g++-8', 'qt5-default']
+      env:
+        - CXX=g++-8
+        - CONFIG=Release
 
     - compiler: clang
       addons:
