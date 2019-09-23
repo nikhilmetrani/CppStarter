@@ -60,7 +60,6 @@ before_install:
       brew outdated cmake || brew upgrade cmake;
       brew install qt5;
       export CMAKE_PREFIX_PATH=$(brew --prefix qt5);
-      echo CMAKE_PREFIX_PATH - $CMAKE_PREFIX_PATH
     fi
 
 before_script:
