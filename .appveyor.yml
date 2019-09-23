@@ -14,16 +14,16 @@ environment:
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       QT_PARAMS: -DCMAKE_PREFIX_PATH=C:\Qt\5.13.0\msvc2017_64
 
-    - ARCH: x64
-      GENERATOR: Visual Studio 16 2019
+    - GENERATOR: Visual Studio 16 2019
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
       QT_PARAMS: -DCMAKE_PREFIX_PATH=C:\Qt\5.13.0\msvc2017
-
-    - ARCH: Win32
-      GENERATOR: Visual Studio 16 2019
+      ARCH: Win32
+      
+    - GENERATOR: Visual Studio 16 2019
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
       QT_PARAMS: -DCMAKE_PREFIX_PATH=C:\Qt\5.13.0\msvc2017_64
-
+      ARCH: x64
+      
 init: []
 
 before_build:
