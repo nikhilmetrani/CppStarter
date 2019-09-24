@@ -1,6 +1,6 @@
 
-#ifndef CppQtGuiStarter_h
-#define CppQtGuiStarter_h
+#ifndef CPP_STARTER_CPP_QT_GUI_STARTER_H
+#define CPP_STARTER_CPP_QT_GUI_STARTER_H
 
 #include "ui_CppQtGuiStarter.h"
 #include <CppDllStarter/Sample.h>
@@ -22,4 +22,4 @@ private slots:
 	void HandleMultiplyByTwoClick();
 };
 
-#endif // CppQtGuiStarter_h
+#endif // CPP_STARTER_CPP_QT_GUI_STARTER_H
