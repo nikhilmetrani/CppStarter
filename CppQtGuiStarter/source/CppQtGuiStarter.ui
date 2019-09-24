@@ -14,27 +14,66 @@
    <string>CppQtGuiStarter</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>40</x>
       <y>30</y>
-      <width>113</width>
-      <height>22</height>
+      <width>195</width>
+      <height>61</height>
      </rect>
     </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QSpinBox" name="spinBoxInput"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QSplitter" name="splitter">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QPushButton" name="pushButtonMultiplyByTwo">
+        <property name="text">
+         <string>MultiplyByTwo</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButtonSquare">
+        <property name="text">
+         <string>Square</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="pushButtonMultiplyByTwo">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>30</y>
-      <width>111</width>
-      <height>28</height>
+      <x>261</x>
+      <y>51</y>
+      <width>47</width>
+      <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>MultiplyByTwo</string>
+     <string>Result:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelResult">
+    <property name="geometry">
+     <rect>
+      <x>314</x>
+      <y>51</y>
+      <width>111</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
     </property>
    </widget>
   </widget>
@@ -44,7 +83,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

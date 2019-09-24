@@ -30,9 +30,10 @@ endif()
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
+include_directories(${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${PROJECT_NAME}_autogen/include/)
 add_executable(CppQtGuiStarter WIN32 ${SRC_FILES})
 
-target_link_libraries(CppQtGuiStarter Qt5::Widgets)
+target_link_libraries(CppQtGuiStarter CppDllStarter Qt5::Widgets)
 
 add_custom_command(
     TARGET CppQtGuiStarter POST_BUILD
