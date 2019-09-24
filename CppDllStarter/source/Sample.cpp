@@ -1,4 +1,4 @@
-#include "../include/CppDllStarter/Sample.h"
+#include <CppDllStarter/Sample.h>
 
 namespace CppDllStarter
 {

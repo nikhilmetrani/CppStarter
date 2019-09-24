@@ -5,7 +5,7 @@
 
 ---
 
-Simple cross platform C++ starter project with shared library, executable, Google Test and CI.
+Simple cross platform C++ starter project with shared library, command line executable, Qt 5 GUI, Google Test and CI.
 
 
 ### IDEs
@@ -17,17 +17,15 @@ Simple cross platform C++ starter project with shared library, executable, Googl
          * C/C++
          * CMake Tools
    * CLion
-   * Xcode 9.4 and 10.3 (using cmake Xcode generator)
+   * Xcode 10.3 (using cmake Xcode generator)
 
 ### Supported Compilers
 
    * Linux
       * gcc 8
-      * gcc 9
-      * clang 7
       * clang 8
    * OSX
-      * clang (xcode 9.4 and 10.3)
+      * clang (10.3)
    * Windows
       * Visual Studio 2017 [x86/x64]
       * Visual Studio 2019 [x86/x64]

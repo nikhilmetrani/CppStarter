@@ -1,7 +1,7 @@
 #ifndef CPP_DLL_STARTER_SAMPLE_H
 #define CPP_DLL_STARTER_SAMPLE_H
 
-#include "../../source/core.h"
+#include <CppDllStarter/core.h>
 
 namespace CppDllStarter
 {
