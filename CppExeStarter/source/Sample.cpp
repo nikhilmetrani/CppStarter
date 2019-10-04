@@ -1,5 +1,4 @@
-#include <CppDllStarter/Sample.h>
-#include <iostream>
+#include <cppstpch.h>
 
 auto main(void) -> int
 {
