@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
-include(../3rdParty/cmake-precompiled-header/PrecompiledHeader.cmake)
 project(CppExeStarter)
+include(../3rdParty/cmake-precompiled-header/PrecompiledHeader.cmake)
 
 set(CMAKE_CXX_STANDARD 17)
 

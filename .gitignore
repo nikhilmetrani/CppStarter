@@ -2,3 +2,5 @@ build/*
 .vs*/*
 .idea/*
 cmake-*/
+# Whitelist 3rdParty folder as it is auto ignored.
+!3rdParty/*
