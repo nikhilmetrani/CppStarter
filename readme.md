@@ -5,7 +5,7 @@
 
 ---
 
-Simple cross platform C++ starter project with shared library, command line executable, Qt 5 GUI, Google Test and CI.
+Simple cross platform C++ starter project with shared library, command line executable with precompiled header support, Qt 5 GUI, Google Test and CI.
 
 
 ### IDEs
