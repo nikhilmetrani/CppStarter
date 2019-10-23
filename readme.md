@@ -1,6 +1,8 @@
 # CppStarter
 
-[![Actions Status](https://github.com/nikhilmetrani/CppStarter/workflows/CI/badge.svg)](https://github.com/nikhilmetrani/CppStarter/actions?workflow=CI)
+[![Windows Actions Status](https://github.com/nikhilmetrani/CppStarter/workflows/Windows%20-%20build%20and%20test/badge.svg)](https://github.com/nikhilmetrani/CppStarter/actions?workflow=Windows%20-%20build%20and%20test)
+[![Linux Actions Status](https://github.com/nikhilmetrani/CppStarter/workflows/Linux%20-%20build%20and%20test/badge.svg)](https://github.com/nikhilmetrani/CppStarter/actions?workflow=Linux%20-%20build%20and%20test)
+[![MacOS Actions Status](https://github.com/nikhilmetrani/CppStarter/workflows/macOS%20-%20build%20and%20test/badge.svg)](https://github.com/nikhilmetrani/CppStarter/actions?workflow=macOS%20-%20build%20and%20test)
 [![Travis CI Status](https://travis-ci.com/nikhilmetrani/CppStarter.svg?branch=master)](https://travis-ci.com/nikhilmetrani/CppStarter)
 [![AppVeyor status](https://ci.appveyor.com/api/projects/status/a5ys0dxj5umktrp3/branch/master?svg=true)](https://ci.appveyor.com/project/nikhilmetrani/cppstarter/branch/master)
 
