@@ -1,0 +1,30 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compilers: [ g++, clang++ ]
+        configs: [ Debug, Release ]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Dependencies
+      run: sudo apt-get install qt5-default
+    - name: Configure
+      run: |
+        $CXX --version
+        echo CONFIG - $CONFIG
+        mkdir build
+        cd build
+        cmake .. -DCMAKE_BUILD_TYPE=$CONFIG
+    - name: Build
+      run: cmake --build . --config $CONFIG
+    - name: Test
+      run: bin/CppGoogleTestStarter
+      env:
+        CXX: ${{ matrix.compilers }}
+        CONFIG: ${{ matrix.configs }}
