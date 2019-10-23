@@ -10,6 +10,11 @@ jobs:
       matrix:
         arch: [ 'Win32', 'x64' ]
         configs: [ 'Debug', 'Release' ]
+        
+    env:
+        ARCH: ${{ matrix.arch }}
+        CONFIG: ${{ matrix.configs }}
+
     steps:
     - uses: actions/checkout@v1
     - name: Configure
@@ -27,6 +32,3 @@ jobs:
       run: |
         cd build\bin\%CONFIG%
         CppGoogleTestStarter.exe
-      env:
-        ARCH: ${{ matrix.arch }}
-        CONFIG: ${{ matrix.configs }}
