@@ -20,7 +20,7 @@ jobs:
     - name: Build
       run: |
         cd build
-        cmake --build . --config %CONFIG%
+        cmake --build . --config "%CONFIG%"
     - name: Test
       run: |
         cd build\bin\%CONFIG%
