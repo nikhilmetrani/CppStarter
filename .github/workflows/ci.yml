@@ -25,7 +25,7 @@ jobs:
     - name: Test
       run: |
         cd build
-        bin/CppGoogleTestStarterexport
+        bin/CppGoogleTestStarter
       env:
         CXX: ${{ matrix.compilers }}
         CONFIG: ${{ matrix.configs }}
