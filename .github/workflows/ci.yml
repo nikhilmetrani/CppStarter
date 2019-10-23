@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Dependencies
-      run: sudo apt-get install qt5-default
+      run: apt-get install qt5-default
     - name: Configure
       run: |
         $CXX --version
