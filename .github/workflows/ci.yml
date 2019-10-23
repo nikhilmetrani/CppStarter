@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        compilers: [ g++, clang++ ]
-        configs: [ Debug, Release ]
+        compilers: [ 'g++', 'clang++' ]
+        configs: [ 'Debug', 'Release' ]
     steps:
     - uses: actions/checkout@v1
     - name: Configure
