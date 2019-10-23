@@ -21,12 +21,10 @@ jobs:
       run: |
         md build
         cd build
-        echo cmake --config %CONFIG% -G "Visual Studio 16 2019" -A %ARCH% ..
         cmake --config %CONFIG% -G "Visual Studio 16 2019" -A %ARCH% ..
     - name: Build
       run: |
         cd build
-        echo cmake --build . --config %CONFIG%
         cmake --build . --config %CONFIG%
     - name: Test
       run: |

@@ -8,7 +8,9 @@ jobs:
     strategy:
       matrix:
         configs: [ 'Debug', 'Release' ]
-    
+  
+    env:
+      CONFIG: ${{ matrix.configs }}
     steps:
     - uses: actions/checkout@v1
     - name: Configure
@@ -25,5 +27,3 @@ jobs:
       run: |
         cd build
         bin/CppGoogleTestStarter
-      env:
-        CONFIG: ${{ matrix.configs }}

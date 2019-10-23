@@ -10,13 +10,17 @@ jobs:
       matrix:
         compilers: [ 'g++', 'clang++' ]
         configs: [ 'Debug', 'Release' ]
+
+    env:
+      CXX: ${{ matrix.compilers }}
+      CONFIG: ${{ matrix.configs }}
+
     steps:
     - uses: actions/checkout@v1
     - name: Configure
       run: |
         mkdir build
         cd build
-        export CXX=/usr/bin/${{matrix.compilers}}
         cmake -DCMAKE_BUILD_TYPE=$CONFIG -DGH_CI=YES ..
     - name: Build
       run: |
@@ -26,6 +30,3 @@ jobs:
       run: |
         cd build
         bin/CppGoogleTestStarter
-      env:
-        CXX: ${{ matrix.compilers }}
-        CONFIG: ${{ matrix.configs }}
