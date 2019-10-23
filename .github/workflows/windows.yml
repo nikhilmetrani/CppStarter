@@ -1,0 +1,31 @@
+name: Windows - build and test
+
+on: [ push, pull_request ]
+
+jobs:
+  Windows:
+
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        arch: [ 'Win32', 'x64' ]
+        configs: [ 'Debug', 'Release' ]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Configure
+      run: |
+        md build
+        cd build
+        cmake --config "%CONFIG%" -G "Visual Studio 16 2019" -A %ARCH% -DGH_CI=YES ..
+    - name: Build
+      run: |
+        cd build
+        cmake --build . --config %CONFIG%
+    - name: Test
+      run: |
+        cd build\bin\%CONFIG%
+        CppGoogleTestStarter.exe
+      env:
+        ARCH: ${{ matrix.arch }}
+        CONFIG: ${{ matrix.configs }}
+
