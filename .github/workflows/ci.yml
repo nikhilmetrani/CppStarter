@@ -12,15 +12,13 @@ jobs:
         configs: [ Debug, Release ]
     steps:
     - uses: actions/checkout@v1
-    - name: Dependencies
-      run: apt-get install qt5-default
     - name: Configure
       run: |
         $CXX --version
         echo CONFIG - $CONFIG
         mkdir build
         cd build
-        cmake .. -DCMAKE_BUILD_TYPE=$CONFIG
+        cmake .. -DCMAKE_BUILD_TYPE=$CONFIG -DGH_CI=YES
     - name: Build
       run: cmake --build . --config $CONFIG
     - name: Test

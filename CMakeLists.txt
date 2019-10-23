@@ -14,6 +14,9 @@ add_subdirectory(CppGoogleTestStarter)
 
 # AppVeyor does not have Qt version for VS2019
 # So exclude Qt project for VS 2019 builds
-if(NOT "${CMAKE_GENERATOR}" STREQUAL "Visual Studio 16 2019")
-    add_subdirectory(CppQtGuiStarter)
+# Exclude QT from GitHub Actions as well
+if(NOT "${GH_CI}" STREQUAL "YES")
+    if(NOT "${CMAKE_GENERATOR}" STREQUAL "Visual Studio 16 2019")
+        add_subdirectory(CppQtGuiStarter)
+    endif()
 endif()
