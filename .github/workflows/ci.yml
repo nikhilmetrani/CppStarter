@@ -18,9 +18,13 @@ jobs:
         cd build
         cmake .. -DCMAKE_BUILD_TYPE=$CONFIG -DGH_CI=YES
     - name: Build
-      run: cmake --build . --config $CONFIG
+      run: |
+        cd build
+        cmake --build . --config $CONFIG
     - name: Test
-      run: bin/CppGoogleTestStarter
+      run: |
+        cd build
+        bin/CppGoogleTestStarter
       env:
         CXX: ${{ matrix.compilers }}
         CONFIG: ${{ matrix.configs }}
