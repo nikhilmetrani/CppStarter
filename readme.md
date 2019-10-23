@@ -1,7 +1,8 @@
 # CppStarter
 
-[![Build Status](https://travis-ci.com/nikhilmetrani/CppStarter.svg?branch=master)](https://travis-ci.com/nikhilmetrani/CppStarter)
-[![Build status](https://ci.appveyor.com/api/projects/status/a5ys0dxj5umktrp3/branch/master?svg=true)](https://ci.appveyor.com/project/nikhilmetrani/cppstarter/branch/master)
+[![Actions Status](https://github.com/nikhilmetrani/CppStarter/workflows/CI/badge.svg)](https://github.com/nikhilmetrani/CppStarter/actions?workflow=CI)
+[![Travis CI Status](https://travis-ci.com/nikhilmetrani/CppStarter.svg?branch=master)](https://travis-ci.com/nikhilmetrani/CppStarter)
+[![AppVeyor status](https://ci.appveyor.com/api/projects/status/a5ys0dxj5umktrp3/branch/master?svg=true)](https://ci.appveyor.com/project/nikhilmetrani/cppstarter/branch/master)
 
 ---
 

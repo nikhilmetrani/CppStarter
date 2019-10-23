@@ -1,0 +1,32 @@
+name: Linux - build and test
+
+on: [ push, pull_request ]
+
+jobs:
+  Linux:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compilers: [ 'g++', 'clang++' ]
+        configs: [ 'Debug', 'Release' ]
+
+    env:
+      CXX: ${{ matrix.compilers }}
+      CONFIG: ${{ matrix.configs }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Configure
+      run: |
+        mkdir build
+        cd build
+        cmake -DCMAKE_BUILD_TYPE=$CONFIG -DGH_CI=YES ..
+    - name: Build
+      run: |
+        cd build
+        cmake --build . --config $CONFIG
+    - name: Test
+      run: |
+        cd build
+        bin/CppGoogleTestStarter

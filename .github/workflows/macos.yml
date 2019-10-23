@@ -1,0 +1,29 @@
+name: macOS - build and test
+
+on: [ push, pull_request ]
+
+jobs:
+  macOS:
+    runs-on: macOS-latest
+    strategy:
+      matrix:
+        configs: [ 'Debug', 'Release' ]
+  
+    env:
+      CONFIG: ${{ matrix.configs }}
+    steps:
+    - uses: actions/checkout@v1
+    - name: Configure
+      run: |
+        mkdir build
+        cd build
+        export CXX=/usr/bin/clang++
+        cmake -DCMAKE_BUILD_TYPE=$CONFIG -DGH_CI=YES ..
+    - name: Build
+      run: |
+        cd build
+        cmake --build . --config $CONFIG
+    - name: Test
+      run: |
+        cd build
+        bin/CppGoogleTestStarter
