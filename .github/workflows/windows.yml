@@ -8,25 +8,25 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        arch: [ Win32, x64 ]
-        configs: [ Debug, Release ]
+        arch: [ 'Win32', 'x64' ]
+        configs: [ 'Debug', 'Release' ]
     steps:
     - uses: actions/checkout@v1
     - name: Configure
       run: |
         md build
         cd build
-        echo cmake --config "%CONFIG%" -G "Visual Studio 16 2019" -A "%ARCH%" ..
-        cmake --config "%CONFIG%" -G "Visual Studio 16 2019" -A "%ARCH%" ..
+        echo cmake --config %CONFIG% -G "Visual Studio 16 2019" -A %ARCH% ..
+        cmake --config %CONFIG% -G "Visual Studio 16 2019" -A %ARCH% ..
     - name: Build
       run: |
         cd build
-        echo cmake --build . --config "%CONFIG%"
-        cmake --build . --config "%CONFIG%"
+        echo cmake --build . --config %CONFIG%
+        cmake --build . --config %CONFIG%
     - name: Test
       run: |
         cd build\bin\%CONFIG%
         CppGoogleTestStarter.exe
       env:
-        ARCH: ${{matrix.arch}}
-        CONFIG: ${{matrix.configs}}
+        ARCH: ${{ matrix.arch }}
+        CONFIG: ${{ matrix.configs }}
