@@ -8,8 +8,8 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        arch: [ 'Win32', 'x64' ]
-        configs: [ 'Debug', 'Release' ]
+        arch: [ Win32, x64 ]
+        configs: [ Debug, Release ]
         
     env:
         ARCH: ${{ matrix.arch }}
@@ -18,15 +18,18 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Configure
+      shell: cmd
       run: |
         md build
         cd build
         cmake --config %CONFIG% -G "Visual Studio 16 2019" -A %ARCH% ..
     - name: Build
+      shell: cmd
       run: |
         cd build
         cmake --build . --config %CONFIG%
     - name: Test
+      shell: cmd
       run: |
         cd build\bin\%CONFIG%
         CppGoogleTestStarter.exe
