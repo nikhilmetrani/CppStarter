@@ -16,7 +16,7 @@ jobs:
       run: |
         md build
         cd build
-        cmake --config "%CONFIG%" -G "Visual Studio 16 2019" -A %ARCH% -DGH_CI=YES ..
+        cmake --config "%CONFIG%" -G "Visual Studio 16 2019" -A "%ARCH%" ..
     - name: Build
       run: |
         cd build
